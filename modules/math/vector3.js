@@ -3,7 +3,7 @@
 class Vector3 {
     #x;
     #y;
-    #y;
+    #z;
 
     /**
      * Creates a new 3D vector
