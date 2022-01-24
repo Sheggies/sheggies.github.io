@@ -11,7 +11,7 @@ class Vector3 {
      * @param {number} y Y component
      * @param {number} z Z component
      */
-    constructor(x, y) {
+    constructor(x, y, z) {
         this.#x = Number.isNaN(x) ? 0 : x;
         this.#y = Number.isNaN(y) ? 0 : y;
         this.#z = Number.isNaN(z) ? 0 : z;
