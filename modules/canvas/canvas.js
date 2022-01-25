@@ -4,7 +4,6 @@ class Canvas {
     #id;
     #parent;
     #canvasElement;
-    #mutationObserver;
 
     /**
      * Creates a new canvas and makes it a child of the specified parent element
@@ -82,13 +81,6 @@ class Canvas {
             return;
         }
         this.#canvasElement.height = v;
-    }
-
-    /**
-     * Observes changes in the created canvas element and reacts accordingly
-     */
-    #canvasElementObserver() {
-
     }
 }
 
