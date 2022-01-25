@@ -2,7 +2,7 @@
 import { default as Primitive, Vector2 } from "./primitive.js";
 
 class Circle extends Primitive {
-    _radius;
+    radius;
 
     /**
      * Creates a circle primitive
@@ -13,25 +13,16 @@ class Circle extends Primitive {
      */
     constructor(ctx, p, r, s) {
         super(ctx, p, s);
-        this._radius = r;
-    }
-
-    get radius() {
-        return this._radius;
-    }
-
-    set radius(v) {
-        if (Number.isNaN(v)) {
-            return
-        }
-        this._radius = v;
+        this.radius = r;
     }
 
     draw() {
-        let ctx = this._ctx;
-        ctx.fillStyle = this._style;
+        let ctx = super.context;
+        let p = super.position;
+        ctx.fillStyle = super.style;
+
         ctx.beginPath();
-        ctx.arc(this._pos.x, this._pos.y, this._radius, 0, 2 * Math.PI, false);
+        ctx.arc(p.x, p.y, this.radius, 0, 2 * Math.PI, true);
         ctx.fill();
     }
 }

@@ -2,7 +2,7 @@
 import { default as Primitive, Vector2 } from "./primitive.js";
 
 class Polygon extends Primitive {
-    _vertices;
+    vertices;
 
     /**
      * Creates a polygon primitive
@@ -12,27 +12,20 @@ class Polygon extends Primitive {
      */
     constructor(ctx, s, ...v) {
         super(ctx, v[0], s);
-        this._vertices = v;
-    }
-
-    get vertices() {
-        return this._vertices;
-    }
-
-    set vertices(v) {
-        this._vertices = v ?? this._vertices;
+        this.vertices = v;
     }
 
     draw() {
-        let ctx = this._ctx;
-        ctx.fillStyle = this._style;
-
+        let ctx = super.context;
+        let p = super.position;
         let region = new Path2D();
-        region.moveTo(this._pos.x, this._pos.y);
+        ctx.fillStyle = super.style;
 
-        for (let i = 1; i < this._vertices.length; i++) {
-            let v = this._vertices[i];
-            region.lineTo(v.x, v.y)
+        region.moveTo(p.x, p.y);
+
+        for (let i = 1; i < this.vertices.length; i++) {
+            let v = this.vertices[i];
+            region.lineTo(v.x, v.y);
         }
 
         region.closePath();

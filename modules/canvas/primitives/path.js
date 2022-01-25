@@ -1,8 +1,8 @@
 import { default as Primitive, Vector2 } from "./primitive.js";
 
 class Path extends Primitive {
-    _width;
-    _vertices;
+    width;
+    vertices;
 
     /**
      * Creates a path primitive
@@ -13,24 +13,21 @@ class Path extends Primitive {
      */
     constructor(ctx, s, w, ...v) {
         super(ctx, v[0], s);
-        this._width = w;
-        this._vertices = v;
-    }
-
-    get vertices() {
-        return this._vertices;
+        this.width = w;
+        this.vertices = v;
     }
 
     draw() {
-        let ctx = this._ctx;
-        ctx.lineWidth = this._width;
-        ctx.fillStyle = this._style;
+        let ctx = super.context;
+        let p = super.position;
+        ctx.lineWidth = this.width;
+        ctx.fillStyle = super.style;
 
         ctx.beginPath()
-        ctx.moveTo(this._pos.x, this._pos.y);
+        ctx.moveTo(p.x, p.y);
 
-        for (let i = 1; i < this._vertices.length; i++) {
-            let v = this._vertices[i];
+        for (let i = 1; i < this.vertices.length; i++) {
+            let v = this.vertices[i];
             ctx.lineTo(v.x, v.y)
         }
 

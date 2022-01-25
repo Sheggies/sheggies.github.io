@@ -2,7 +2,7 @@
 import { default as Primitive, Vector2 } from "./primitive.js";
 
 class Rectangle extends Primitive {
-    _dimension;
+    dimension;
 
     /**
      * Creates a rectangle primitive
@@ -13,21 +13,16 @@ class Rectangle extends Primitive {
      */
     constructor(ctx, p, d, s) {
         super(ctx, p, s);
-        this._dimension = d;
-    }
-
-    get dimension() {
-        return this._dimension;
-    }
-
-    set dimension(v) {
-        this._dimension = v ?? this._dimension;
+        this.dimension = d;
     }
 
     draw() {
-        let ctx = this._ctx;
-        ctx.fillStyle = this._style;
-        ctx.fillRect(this._pos.x, this._pos.y, this._dimension.x, this._dimension.y);
+        let ctx = super.context;
+        let p = super.position;
+        let d = this.dimension;
+
+        ctx.fillStyle = super.style;
+        ctx.fillRect(p.x, p.y, d.x, d.y);
     }
 }
 
