@@ -1,4 +1,4 @@
-import * as MathUtil from "./modules/math.js";
+import * as MathUtil from "./modules/math/math_module.js";
 import Canvas from "./modules/canvas/canvas_module.js";
 
 let v = new MathUtil.Vector2(1, 2);
