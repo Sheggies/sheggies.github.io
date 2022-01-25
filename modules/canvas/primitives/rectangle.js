@@ -17,11 +17,11 @@ class Rectangle extends Primitive {
     }
 
     draw() {
-        let ctx = super.context;
-        let p = super.position;
+        let ctx = this.context;
+        let p = this.position;
         let d = this.dimension;
 
-        ctx.fillStyle = super.style;
+        ctx.fillStyle = this.style;
         ctx.fillRect(p.x, p.y, d.x, d.y);
     }
 }

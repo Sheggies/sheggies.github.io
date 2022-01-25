@@ -16,10 +16,10 @@ class Polygon extends Primitive {
     }
 
     draw() {
-        let ctx = super.context;
-        let p = super.position;
+        let ctx = this.context;
+        let p = this.position;
         let region = new Path2D();
-        ctx.fillStyle = super.style;
+        ctx.fillStyle = this.style;
 
         region.moveTo(p.x, p.y);
 

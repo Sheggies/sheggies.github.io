@@ -17,9 +17,9 @@ class Circle extends Primitive {
     }
 
     draw() {
-        let ctx = super.context;
-        let p = super.position;
-        ctx.fillStyle = super.style;
+        let ctx = this.context;
+        let p = this.position;
+        ctx.fillStyle = this.style;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, this.radius, 0, 2 * Math.PI, true);

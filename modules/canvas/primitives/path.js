@@ -18,10 +18,10 @@ class Path extends Primitive {
     }
 
     draw() {
-        let ctx = super.context;
-        let p = super.position;
+        let ctx = this.context;
+        let p = this.position;
         ctx.lineWidth = this.width;
-        ctx.fillStyle = super.style;
+        ctx.fillStyle = this.style;
 
         ctx.beginPath()
         ctx.moveTo(p.x, p.y);
