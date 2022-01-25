@@ -1,9 +1,9 @@
 "use strict";
 
 class Vector3 {
-    #x;
-    #y;
-    #z;
+    x;
+    y;
+    z;
 
     /**
      * Creates a new 3D vector
@@ -12,9 +12,9 @@ class Vector3 {
      * @param {number} z Z component
      */
     constructor(x, y, z) {
-        this.#x = Number.isNaN(x) ? 0 : x;
-        this.#y = Number.isNaN(y) ? 0 : y;
-        this.#z = Number.isNaN(z) ? 0 : z;
+        this.x = Number.isNaN(x) ? 0 : x;
+        this.y = Number.isNaN(y) ? 0 : y;
+        this.z = Number.isNaN(z) ? 0 : z;
     }
 
     /**
@@ -26,55 +26,22 @@ class Vector3 {
     }
 
     /**
-     * Sets the x component to `v`
-     * @param {number} v The value to set `x` to
-     */
-    set x(v) {
-        if (Number.isNaN(v)) {
-            return;
-        }
-        this.#x = v;
-    }
-
-    /**
-     * Sets the y component to `v`
-     * @param {number} v The value to set `y` to
-     */
-    set y(v) {
-        if (Number.isNaN(v)) {
-            return;
-        }
-        this.#y = v;
-    }
-
-    /**
-     * Sets the z component to `v`
-     * @param {number} v The value to set `z` to
-     */
-    set y(v) {
-        if (Number.isNaN(v)) {
-            return;
-        }
-        this.#z = v;
-    }
-
-    /**
      * Gets the length of the vector
      * @returns {number} The length
      */
     get length() {
-        return (this.#x**2 + this.#y**2 + this.#z**2)**(1/2);
+        return (this.x**2 + this.y**2 + this.z**2)**(1/2);
     }
 
     /**
      * Adds every vector in `v` to the vector
-     * @param {...Vector3} v The vectors to add
+     * @param {...Vector3} v Vertices to add
      */
     add(...v) {
         for (e in v) {
-            this.#x += e.#x;
-            this.#y += e.#y;
-            this.#z += e.#z;
+            this.x += e.x;
+            this.y += e.y;
+            this.z += e.z;
         }
     }
 
@@ -86,9 +53,9 @@ class Vector3 {
         if (Number.isNaN(s)) {
             return;
         }
-        this.#x *= s;
-        this.#y *= s;
-        this.#z *= s;
+        this.x *= s;
+        this.y *= s;
+        this.z *= s;
     }
 
     /**
@@ -104,7 +71,7 @@ class Vector3 {
      * @returns {number} The dot product
      */
     dot(b) {
-        return this.#x * b.#x + this.#y * b.#y + this.#z * b.#z;
+        return this.x * b.x + this.y * b.y + this.z * b.z;
     }
 
     /**
@@ -122,25 +89,25 @@ class Vector3 {
      * @returns {Vector3} The resulting vector
      */
     cross(b) {
-        let x = this.#y * b.#z - this.#z * b.#y;
-        let y = this.#z * b.#x - this.#x * b.#z;
-        let z = this.#x * b.#y - this.#y * b.#x;
+        let x = this.y * b.z - this.z * b.y;
+        let y = this.z * b.x - this.x * b.z;
+        let z = this.x * b.y - this.y * b.x;
 
         return new Vector3(x, y, z);
     }
 
     /**
-     * Adds multiple 3D vectors and returns the result as a new vector
-     * @param {...Vector3} v Vectors to add together
+     * Adds multiple 3D vertices and returns the result as a new vector
+     * @param {...Vector3} v Vertices to add together
      * @returns {Vector3} The resulting vector
      */
-    static addVectors(...v) {
+    static addVertices(...v) {
         n = new Vector3(0, 0);
 
         for(e in v) {
-            n.#x += e.#x;
-            n.#y += e.#y;
-            n.#z += e.#z;
+            n.x += e.x;
+            n.y += e.y;
+            n.z += e.z;
         }
 
         return n;
